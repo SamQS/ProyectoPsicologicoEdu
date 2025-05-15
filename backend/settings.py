@@ -79,27 +79,17 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'apppsico', 
-#         'USER': 'root',
-#         'PASSWORD': '',          
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'railway',
-        'HOST': 'postgres.railway.internal',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway', 
+        'USER': 'root',
+        'PASSWORD': 'UAqeqTZGLRKHiSiVrdeYajmFKGrrcZvf',          
+        'HOST': 'mysql.railway.internal',
+        'PORT': '3306',
     }
 }
-
+# 'HOST': '127.0.0.1',
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -147,5 +137,3 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "sk-proj-w54l_KTdrI9Ab7jlbzeMZse7zz
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)

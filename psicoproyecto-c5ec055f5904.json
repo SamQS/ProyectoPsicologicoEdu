@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "psicoproyecto",
+  "private_key_id": "c5ec055f590428b0dbee8010eddd5c20b0b56d97",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCwHgJq/MlYYV5l\n9/UNy6fcfSu1OVO5F3a5bNAgdTSDykpgp7tVhmGCXRqVa7pnBPNGwS0yCxs4A01R\nnIli+AcIIZ2J+SYa3EWZfJlDnb7A79T6xWUyCcDxxt+kYQ5wYIb+6BHX10MQtZ+g\nxZDGRpZE7qqqSw64gT15wJh42xrf2kGS5J+ZeC+KNStYnyGnDVNZWsJPWr3YNs4V\nTJxJitK/eANLe+U1D0MduRK+P3Eg6lMLXM46AEVHU4kLcxTztHVURqzq+MpYqxLS\nwt4/kt8NGUmZcg46LzoPM/NjkBe+PHChqsBTlLqbRD9VAGnHND9SjJ2O3HBI5YIC\nsBrs9DXHAgMBAAECggEADyx+u9YMyPMWrYVoFSizTUFxlxsZ1gwp+/7ejbVbcXFn\n6Bz7fHpoA1HfPPl7pW2dQj7ZlIK1dSV/r2Tjx2WkQXSX/K+9MzpAOuGr2NIKAdiI\nCpUgS2fgulQOp7x/AHqoluTKyMRwsEtdtf3fo92oC8deZ+6wlX/5GnjYCi2iip/A\nRNG+hhVoRvchKhMtenCqGd6NTxf0bWzIbgIwcs4mBd3n9FmUQgd5wPyhp+qhMUfM\napYj9roXqXfnNOaS33tPVPTmuWZFHZA8BZ0DG5rK/FaYRfxqdnitEztwBgTIunXF\n/uJ9GR9epST3D+mppMt4eJY/IoM/+u1Q4uKkN2nZWQKBgQDan1JrYeTjp4L74cft\npznFYpqd1kQsmKtRPH9ROMjOuEbyNjbYrZl79WCDPUTamMp1F8zHNpa7arsNz9zR\nmsXU/GbuUIBpBKWuhApCBgVc+/B1iFQ0kJkfes/MDLh3pu1n88S024B7T5GEKhNw\n10B9qVugDqn6qgkilaRL2JHxTwKBgQDOOlH3p1BFUTve2CSMCj9jgONRCJIFdFqY\n8XAJB/sJLFlnH2a1Fxo0lQag7x04nlclxZCXgs8Zq6aHNfmbxrtnLs9ekHNqPqDf\nvyJ8mK0PITSWpzLpd8D39+g720hkWO9lUeis2A+K6yVy+QVt+pQmTun1X6CKPcGn\nkm0H/68mCQKBgQDAAx6IYbp+mClawLqv6Ce9TRUve3j1EkGlX9USqST1KrRlF2ik\ndhRP4vuZSL6on3lxzi106mUIxnzzbJUtIxqOLgDZXqrpkcNSu3Wm91LOkBhpogsS\n/8z88QiA1stNi7cHjfo+Pmth4kiUI8BfYy6pL43hzf9MwPq0/WkHlHbZ0QKBgQCE\nVG3mUQk0AYU+YElLRwQX0EuM4sf4EgpUW5B9aw6Ne1S+1Cpuhy18kifXurdwbkIT\nbatzXS+RFFDeMCdD6wizlBjiYCR/B0Lpb9csRje+HpuFFDKaFwrO0tfFGNdh9KNg\ny2dXCaknhe3Y0avHP2QzFK4RklQMgMYzxcSKvmlgKQKBgCprzA15/j8bb5vHH5uz\nkAZzlaBqbHfRTYP2+xKcCWGhgjVRFuB1pxzgZYO5zEIQG9RarHgF2e8GMUWveXCO\nld7WeOy5mEPyBuHV6hvaJjS5fFwYVUjSJ/vdyeKgkNemA1XpNIJeh5ygLWmhSySN\n6evgz91kdppD6Tjj46Y01L91\n-----END PRIVATE KEY-----\n",
+  "client_email": "tts-704@psicoproyecto.iam.gserviceaccount.com",
+  "client_id": "117914891510556989930",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tts-704%40psicoproyecto.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

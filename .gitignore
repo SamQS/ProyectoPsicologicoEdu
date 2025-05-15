@@ -1,0 +1,30 @@
+# Ignorar entorno virtual
+venv/
+.env
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Archivos de Django
+db.sqlite3
+
+# Configuración local
+*.log
+*.pot
+*.pyc
+
+# Entornos de desarrollo
+.idea/
+.vscode/
+.DS_Store
+
+# Archivos de compilación
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Archivos del sistema operativo
+Thumbs.db

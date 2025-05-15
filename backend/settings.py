@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',  # API REST
     'estudiantes',  # Tu nueva app
     'chatgpt_api',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [

@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-!$^so=6i*efqb(8r_xv3fxt)l%8!vf#4=#=sh5#+e8yma_t@c8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,10 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'railway', 
-        'USER': 'root',
-        'PASSWORD': 'UAqeqTZGLRKHiSiVrdeYajmFKGrrcZvf',          
-        'HOST': 'mysql.railway.internal',
-        'PORT': '3306',
+        'USER': 'postgres',
+        'PASSWORD': 'mxEiMIIfjtZOPDmpyciuRgxFzmhHaImi',          
+        'HOST': 'postgres.railway.internal',
+        'PORT': '5432',
     }
 }
 # 'HOST': '127.0.0.1',
@@ -137,3 +137,5 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "sk-proj-w54l_KTdrI9Ab7jlbzeMZse7zz
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)

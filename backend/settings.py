@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,10 +92,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lo_que_te_dio_railway',
-        'USER': 'lo_que_te_dio_railway',
-        'PASSWORD': 'lo_que_te_dio_railway',
-        'HOST': 'lo_que_te_dio_railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'railway',
+        'HOST': 'postgres.railway.internal',
         'PORT': '5432',
     }
 }
@@ -144,3 +146,6 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "sk-proj-w54l_KTdrI9Ab7jlbzeMZse7zz
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)

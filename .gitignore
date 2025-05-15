@@ -1,6 +1,7 @@
 # Ignorar entorno virtual
 venv/
 .env
+*.json
 
 # Archivos de Python
 __pycache__/

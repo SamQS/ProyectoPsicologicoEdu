@@ -1,1 +1,0 @@
-set GOOGLE_APPLICATION_CREDENTIALS="D:\Unity\Proyectos\PryBackPsico\backend\psicoproyecto-c5ec055f5904.json"

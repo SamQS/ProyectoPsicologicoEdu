@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import pymysql
 from dotenv import load_dotenv
 import os
 
@@ -33,7 +34,7 @@ DEBUG = False
 ALLOWED_HOSTS = [os.environ.get("DJANGO_ALLOWED_HOST", "*")]
 
 
-
+pymysql.install_as_MySQLdb()
 # Application definition
 
 INSTALLED_APPS = [

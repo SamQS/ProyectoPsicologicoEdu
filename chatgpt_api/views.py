@@ -14,19 +14,8 @@ from google.cloud import texttospeech, speech
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_google_credentials():
-    raw_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
-    if not raw_json:
-        raise Exception("GOOGLE_CREDENTIALS_JSON no está definida en el entorno")
-
-    print("LONGITUD JSON:", len(raw_json))
-    try:
-        credentials_info = json.loads(raw_json)
-    except json.JSONDecodeError as e:
-        print("ERROR PARSEANDO JSON:", e)
-        raise
-
-    from google.oauth2 import service_account
-    credentials = service_account.Credentials.from_service_account_info(credentials_info)
+    json_path = os.path.join(os.path.dirname(__file__), "../google-credentials.json")
+    credentials = service_account.Credentials.from_service_account_file(json_path)
     return credentials
 
 @csrf_exempt

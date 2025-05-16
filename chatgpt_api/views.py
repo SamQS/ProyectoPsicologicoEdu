@@ -15,8 +15,8 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_google_credentials():
     credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
-    return service_account.Credentials.from_service_account_info(credentials_info)
-
+    credentials = service_account.Credentials.from_service_account_info(credentials_info)
+    return credentials
 
 @csrf_exempt
 def chat_gpt(request):

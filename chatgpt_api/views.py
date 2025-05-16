@@ -10,8 +10,8 @@ from google.oauth2 import service_account
 from google.cloud import texttospeech, speech
 
 
-openai.api_key = "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"
 
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_google_credentials():
     credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])

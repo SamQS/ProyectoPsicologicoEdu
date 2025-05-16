@@ -16,9 +16,9 @@ def get_google_credentials():
     import json
     from google.oauth2 import service_account
 
-    credentials_json = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS_JSON")
+    credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
     if not credentials_json:
-        raise Exception("La variable de entorno GOOGLE_APPLICATION_CREDENTIALS_JSON no está definida")
+        raise Exception("La variable de entorno GOOGLE_CREDENTIALS_JSON no está definida")
 
     info = json.loads(credentials_json)
     credentials = service_account.Credentials.from_service_account_info(info)

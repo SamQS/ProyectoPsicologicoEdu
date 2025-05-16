@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-!$^so=6i*efqb(8r_xv3fxt)l%8!vf#4=#=sh5#+e8yma_t@c8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -144,3 +144,5 @@ STATICFILES_DIRS =[
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+ALLOWED_HOSTS = ['localhost', 'proyectopsicologicoedu-production.up.railway.app']

@@ -2,6 +2,7 @@
 venv/
 .env
 *.json
+staticfiles
 
 # Archivos de Python
 __pycache__/

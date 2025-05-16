@@ -78,6 +78,8 @@ def chat_gpt(request):
             )
 
         except Exception as e:
+            print("ERROR DETECTADO:")
+            traceback.print_exc()  # Imprime el stacktrace en los logs de Railway
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Método no permitido"}, status=405)
@@ -164,6 +166,8 @@ def voz_gpt(request):
             })
 
         except Exception as e:
+            print("ERROR DETECTADO:")
+            traceback.print_exc()  # Imprime el stacktrace en los logs de Railway
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Método no permitido"}, status=405)

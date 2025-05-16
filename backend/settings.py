@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
 from dotenv import load_dotenv
 import os
 
@@ -29,7 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-!$^so=6i*efqb(8r_xv3fxt)l%8!vf#4=#=sh5#+e8yma_t@c8"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+ALLOWED_HOSTS = [os.environ.get("DJANGO_ALLOWED_HOST", "*")]
 
 
 
@@ -89,7 +90,16 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-DATABASES = {"default": dj_database_url.config(default=os.getenv("DATABASE_URL"))}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': os.environ['MYSQLHOST'],
+        'PORT': os.environ['MYSQLPORT'],
+        'NAME': os.environ['MYSQLDATABASE'],
+        'USER': os.environ['MYSQLUSER'],
+        'PASSWORD': os.environ['MYSQLPASSWORD'],
+    }
+}
 # 'HOST': '127.0.0.1',
 
 # Password validation
@@ -150,11 +160,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-ALLOWED_HOSTS = ["localhost", "proyectopsicologicoedu-production.up.railway.app"]
 
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # o el puerto desde donde corra Unity web o app
-    "https://proyectopsicologicoedu-production.up.railway.app",
-    "http://tu-dominio-personal.com",
-]
+CSRF_TRUSTED_ORIGINS = ['https://proyectopsicologicoedu-production.up.railway.app']

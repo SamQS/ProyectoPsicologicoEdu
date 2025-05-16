@@ -168,3 +168,5 @@ def voz_gpt(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Método no permitido"}, status=405)
+
+print("DEBUG: GOOGLE_APPLICATION_CREDENTIALS_JSON =", os.environ.get("GOOGLE_APPLICATION_CREDENTIALS_JSON"))

@@ -13,11 +13,7 @@ from google.cloud import texttospeech, speech
 # Configurar OpenAI API key
 openai.api_key = "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"
 
-# Si la variable está como contenido
-credentials_info = json.loads(os.environ['GOOGLE_CREDENTIALS_JSON'])
-credentials = service_account.Credentials.from_service_account_info(credentials_info)
 
-client = texttospeech.TextToSpeechClient(credentials=credentials)
 
 @csrf_exempt
 def chat_gpt(request):

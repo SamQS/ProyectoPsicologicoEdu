@@ -13,8 +13,9 @@ from google.cloud import texttospeech, speech
 # Configurar OpenAI API key
 openai.api_key = "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"
 
-credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
-credentials = service_account.Credentials.from_service_account_info(credentials_info)
+def get_google_credentials():
+    credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
+    return service_account.Credentials.from_service_account_info(credentials_info)
 
 @csrf_exempt
 def chat_gpt(request):
@@ -39,7 +40,8 @@ def chat_gpt(request):
             texto_respuesta = respuesta.choices[0].message["content"]
 
             # Convertir el texto a audio con Google TTS
-            client = texttospeech.TextToSpeechClient()
+            credentials = get_google_credentials()
+            client = texttospeech.TextToSpeechClient(credentials=credentials)
 
             # Configuración de entrada
             input_text = texttospeech.SynthesisInput(text=texto_respuesta)
@@ -99,7 +101,9 @@ def voz_gpt(request):
 
         try:
             # Usar Speech-to-Text para convertir a texto
-            speech_client = speech.SpeechClient()
+            credentials = get_google_credentials()
+            speech_client = speech.SpeechClient(credentials=credentials)
+
             with open(temp_audio_path, "rb") as audio_file:
                 content = audio_file.read()
 
@@ -131,7 +135,7 @@ def voz_gpt(request):
             )
             texto_respuesta = respuesta.choices[0].message["content"]
 
-            tts_client = texttospeech.TextToSpeechClient()
+            tts_client = texttospeech.TextToSpeechClient(credentials=credentials)
             input_text = texttospeech.SynthesisInput(text=texto_respuesta)
             voice = texttospeech.VoiceSelectionParams(
                 language_code="es-ES",

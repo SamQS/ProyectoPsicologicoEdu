@@ -6,9 +6,11 @@ import os
 import tempfile
 import traceback  # Para ver errores más detalladamente
 from django.conf import settings
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/app/google-credentials.json"
+
 from google.oauth2 import service_account
 from google.cloud import texttospeech, speech
-
 
 
 openai.api_key = os.environ.get("OPENAI_API_KEY")

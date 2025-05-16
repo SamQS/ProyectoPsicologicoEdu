@@ -14,12 +14,16 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 print("ENV loaded:", os.environ.get("GOOGLE_CREDENTIALS_JSON") is not None)
 def get_google_credentials():
-    credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
-    if not credentials_json:
-        raise Exception("La variable de entorno GOOGLE_CREDENTIALS_JSON no está definida")
-
+    credentials_json = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS_JSON")
     info = json.loads(credentials_json)
-    print("Private key snippet:", info['private_key'][:50])
+
+    print("Private key before replace snippet:", info['private_key'][:50])
+
+    # Forzar reemplazo de \n
+    info['private_key'] = info['private_key'].replace('\\n', '\n')
+
+    print("Private key after replace snippet:", info['private_key'][:50])
+
     credentials = service_account.Credentials.from_service_account_info(info)
     return credentials
 

@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import os
+from uuid import uuid4
 import tempfile
 import traceback  # Para ver errores más detalladamente
 from django.conf import settings
@@ -69,14 +70,16 @@ def chat_gpt(request):
                 input=input_text, voice=voice, audio_config=audio_config
             )
 
-            # Guardar el archivo de audio en la carpeta media
-            media_path = os.path.join(settings.MEDIA_ROOT, "respuesta_audio.mp3")
+             # 👉 Nombre de archivo único
+            filename = f"respuesta_{uuid4().hex}.mp3"
+            media_path = os.path.join(settings.MEDIA_ROOT, filename)
+
             with open(media_path, "wb") as out:
                 out.write(response.audio_content)
 
-            # Construir la URL absoluta para el archivo de audio
+            # 👉 URL absoluta para el archivo
             audio_url = request.build_absolute_uri(
-                settings.MEDIA_URL + "respuesta_audio.mp3"
+                settings.MEDIA_URL + filename
             ).replace("http://", "https://")
 
             # Devolver la respuesta con el texto y la URL del audio
@@ -166,13 +169,25 @@ def voz_gpt(request):
                 input=input_text, voice=voice, audio_config=audio_config
             )
 
-            media_path = os.path.join(settings.MEDIA_ROOT, "respuesta_audio.mp3")
-            with open(media_path, "wb") as out:
-                out.write(tts_response.audio_content)
+             # 👉 Nombre de archivo único
+            filename = f"respuesta_{uuid4().hex}.mp3"
+            media_path = os.path.join(settings.MEDIA_ROOT, filename)
 
+            with open(media_path, "wb") as out:
+                out.write(response.audio_content)
+
+            # 👉 URL absoluta para el archivo
             audio_url = request.build_absolute_uri(
-                settings.MEDIA_URL + "respuesta_audio.mp3"
+                settings.MEDIA_URL + filename
             ).replace("http://", "https://")
+            
+            # media_path = os.path.join(settings.MEDIA_ROOT, "respuesta_audio.mp3")
+            # with open(media_path, "wb") as out:
+            #     out.write(tts_response.audio_content)
+
+            # audio_url = request.build_absolute_uri(
+            #     settings.MEDIA_URL + "respuesta_audio.mp3"
+            # ).replace("http://", "https://")
 
             return JsonResponse({"texto": texto_respuesta, "audio_url": audio_url})
 

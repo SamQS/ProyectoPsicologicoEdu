@@ -12,10 +12,8 @@ from google.cloud import texttospeech, speech
 
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
+print("ENV loaded:", os.environ.get("GOOGLE_CREDENTIALS_JSON") is not None)
 def get_google_credentials():
-    import json
-    from google.oauth2 import service_account
-
     credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
     if not credentials_json:
         raise Exception("La variable de entorno GOOGLE_CREDENTIALS_JSON no está definida")

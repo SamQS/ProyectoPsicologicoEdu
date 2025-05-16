@@ -160,3 +160,8 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 CSRF_TRUSTED_ORIGINS = ['https://proyectopsicologicoedu-production.up.railway.app']
+
+CORS_ALLOWED_ORIGINS = [
+    "https://tu-unity-webgl.com",
+    "https://proyectopsicologicoedu-production.up.railway.app",
+]

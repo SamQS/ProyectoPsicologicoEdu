@@ -6,12 +6,6 @@ import os
 import tempfile
 import traceback  # Para ver errores más detalladamente
 from django.conf import settings
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-cred_path = os.path.join(BASE_DIR, "google-credentials.json")
-
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = cred_path
-
 from google.oauth2 import service_account
 from google.cloud import texttospeech, speech
 
@@ -19,7 +13,15 @@ from google.cloud import texttospeech, speech
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_google_credentials():
-    credentials = service_account.Credentials.from_service_account_file(cred_path)
+    import json
+    from google.oauth2 import service_account
+
+    credentials_json = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS_JSON")
+    if not credentials_json:
+        raise Exception("La variable de entorno GOOGLE_APPLICATION_CREDENTIALS_JSON no está definida")
+
+    info = json.loads(credentials_json)
+    credentials = service_account.Credentials.from_service_account_info(info)
     return credentials
 
 @csrf_exempt

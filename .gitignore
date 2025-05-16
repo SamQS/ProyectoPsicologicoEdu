@@ -1,7 +1,6 @@
 # Ignorar entorno virtual
 venv/
 .env
-*.json
 staticfiles
 
 # Archivos de Python

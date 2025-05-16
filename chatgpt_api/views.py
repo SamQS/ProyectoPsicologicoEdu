@@ -11,7 +11,7 @@ from google.cloud import texttospeech, speech
 
 
 # Configurar OpenAI API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 def get_google_credentials():
     credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])

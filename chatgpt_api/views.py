@@ -2,10 +2,21 @@ import openai
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-from google.cloud import texttospeech, speech
 import os
 import tempfile
+import traceback  # Para ver errores más detalladamente
 from django.conf import settings
+
+# =======================
+# CARGA DE CREDENCIALES GOOGLE CLOUD PARA RAILWAY
+# =======================
+if "GOOGLE_APPLICATION_CREDENTIALS_JSON" in os.environ:
+    with open("/tmp/google_creds.json", "w") as f:
+        f.write(os.environ["GOOGLE_APPLICATION_CREDENTIALS_JSON"])
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/tmp/google_creds.json"
+
+# Importar después de configurar las credenciales
+from google.cloud import texttospeech, speech
 
 openai.api_key = "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"
 

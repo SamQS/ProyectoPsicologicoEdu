@@ -33,6 +33,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [os.environ.get("DJANGO_ALLOWED_HOST", "*")]
 
+GOOGLE_CREDENTIALS_PATH = os.path.join(BASE_DIR, "credenciales/psicoproyecto-c5ec055f5904.json")
+
 
 pymysql.install_as_MySQLdb()
 # Application definition

@@ -19,6 +19,7 @@ def get_google_credentials():
         raise Exception("La variable de entorno GOOGLE_CREDENTIALS_JSON no está definida")
 
     info = json.loads(credentials_json)
+    print("Private key snippet:", info['private_key'][:50])
     credentials = service_account.Credentials.from_service_account_info(info)
     return credentials
 

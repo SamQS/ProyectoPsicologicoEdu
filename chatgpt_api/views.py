@@ -77,7 +77,7 @@ def chat_gpt(request):
             # Construir la URL absoluta para el archivo de audio
             audio_url = request.build_absolute_uri(
                 settings.MEDIA_URL + "respuesta_audio.mp3"
-            )
+            ).replace("http://", "https://")
 
             # Devolver la respuesta con el texto y la URL del audio
             return JsonResponse(
@@ -172,7 +172,7 @@ def voz_gpt(request):
 
             audio_url = request.build_absolute_uri(
                 settings.MEDIA_URL + "respuesta_audio.mp3"
-            )
+            ).replace("http://", "https://")
 
             return JsonResponse({"texto": texto_respuesta, "audio_url": audio_url})
 

@@ -91,11 +91,7 @@ class RespuestaFinalCreate(generics.ListAPIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class RespuestasFinalPorEstudiante(APIView):
-    def get(self, request):
-        estudiante_id = request.GET.get('estudiante_id')
-        if not estudiante_id:
-            return Response({'error': 'estudiante_id es requerido'}, status=status.HTTP_400_BAD_REQUEST)
-
+    def get(self, request, estudiante_id):
         respuestas = RespuestaFinal.objects.filter(estudiante_id=estudiante_id) # pylint: disable=no-member
         serializer = RespuestaFinalSerializer(respuestas, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

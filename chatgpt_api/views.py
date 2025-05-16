@@ -10,12 +10,13 @@ from google.oauth2 import service_account
 from google.cloud import texttospeech, speech
 
 
-
 openai.api_key = "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"
+
 
 def get_google_credentials():
     credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
     return service_account.Credentials.from_service_account_info(credentials_info)
+
 
 @csrf_exempt
 def chat_gpt(request):
@@ -85,8 +86,8 @@ def chat_gpt(request):
     return JsonResponse({"error": "Método no permitido"}, status=405)
 
 
+# voz
 
-#voz
 
 @csrf_exempt
 def voz_gpt(request):
@@ -113,11 +114,15 @@ def voz_gpt(request):
             config = speech.RecognitionConfig(
                 encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
                 sample_rate_hertz=44100,
-                language_code="es-ES"
+                language_code="es-ES",
             )
 
             response = speech_client.recognize(config=config, audio=audio_recognition)
-            mensaje_usuario = response.results[0].alternatives[0].transcript if response.results else ""
+            mensaje_usuario = (
+                response.results[0].alternatives[0].transcript
+                if response.results
+                else ""
+            )
 
             if not mensaje_usuario:
                 return JsonResponse({"error": "No se pudo reconocer voz"}, status=400)
@@ -160,10 +165,7 @@ def voz_gpt(request):
                 settings.MEDIA_URL + "respuesta_audio.mp3"
             )
 
-            return JsonResponse({
-                "texto": texto_respuesta,
-                "audio_url": audio_url
-            })
+            return JsonResponse({"texto": texto_respuesta, "audio_url": audio_url})
 
         except Exception as e:
             print("ERROR DETECTADO:")
@@ -171,4 +173,3 @@ def voz_gpt(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Método no permitido"}, status=405)
-
